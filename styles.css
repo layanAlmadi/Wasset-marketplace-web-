@@ -1,0 +1,141 @@
+/* Reset margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Header Styling */
+header {
+    background-color: #ffffff;
+    padding: 0; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+/* Styling for the top part with logo and search */
+.header-top {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.logo {
+    flex-basis: 20%;
+    text-align: left;
+    margin-right: 0px; 
+
+}
+
+.logo-img {
+    height: 80px;
+    margin-left: 100px; 
+}
+
+.search-bar {
+    flex-basis: 40%;
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    margin-left: 50px;
+}
+
+
+
+.search-bar input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 400px;
+    margin-right: 20px; 
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #0dbcc2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+
+
+/* Styling for the bottom part with navigation links */
+.header-bottom {
+    background-color: #f4f4f4;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: left; /* Center the navigation links */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav-links a {
+    color: #0dbcc2;
+    margin: 0 20px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color:black; 
+}
+/* Footer Styling */
+footer {
+    background-color: #0dbcc2; /* Light blue color for footer */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+}
+
+footer p {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+footer a {
+    color: white; /* White color for links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #121216; /* Blue hover effect */
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.social-icons img {
+    height: 24px;
+    width: 24px;
+}
+
+
+
