@@ -2,6 +2,9 @@
 # Waseet - Online Marketplace
 
 Waseet is an innovative e-commerce platform that connects buyers and sellers, offering a user-friendly interface for seamless online transactions. Our platform aims to simplify the buying and selling process while delivering an exceptional user experience.
+# Vision
+
+"At Waseet, we strive to lead the e-commerce market by offering an innovative and user-friendly platform that meets the needs of both sellers and buyers. Our goal is to simplify commercial processes and deliver the best user experience."
 
 ## Features
 
@@ -28,12 +31,6 @@ Waseet is an innovative e-commerce platform that connects buyers and sellers, of
 - **Frontend**: 
   - HTML, CSS, JavaScript for responsive design and UI interactivity.
   
-
-```
-
-## Vision
-
-"At Waseet, we strive to lead the e-commerce market by offering an innovative and user-friendly platform that meets the needs of both sellers and buyers. Our goal is to simplify commercial processes and deliver the best user experience."
 
 
 ---
