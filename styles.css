@@ -251,3 +251,134 @@ button:hover {
 }
 
 
+/* Styling for the section title */
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: #0dbcc2;
+    margin-bottom: 40px;
+}
+
+/* Container for all categories */
+.category-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+/* Individual category box */
+.category-box {
+    text-align: center;
+    flex-basis: 30%;
+    padding: 20px;
+    position: relative;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Adding shadow around each box */
+    border-radius: 15px;
+}
+
+/* Circle image container with border and shadow */
+.circle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.circle-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid #0dbcc2;
+    object-fit: cover;
+}
+
+/* Styling for the box title */
+.box-title {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Adding shadow to the box title */
+}
+
+.box-title h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+/* Styling for the button */
+.category-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #0dbcc2;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.category-button:hover {
+    background-color: #0ba0a8;
+}
+/* Reviews Section */
+.reviews-section {
+    margin: 50px auto;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.reviews-section h2 {
+    font-size: 32px;
+    color: #0dbcc2;
+    margin-bottom: 30px;
+}
+
+.reviews-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.review {
+    flex-basis: 22%; /* Adjusts for 4 reviews in a row */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.review-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.review h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.review p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.rating {
+    font-size: 20px;
+    color: #FFD700; /* Gold color for stars */
+    margin-top: 10px;
+}
