@@ -116,7 +116,6 @@ footer p {
 footer a {
     color: white; /* White color for links */
     text-decoration: none;
-    transition: color 0.3s ease;
 }
 
 footer a:hover {
@@ -136,6 +135,119 @@ footer a:hover {
     height: 24px;
     width: 24px;
 }
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin: 5px 0; 
+    background-color: #f9f9f9; 
+    padding: 10px 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
 
+.breadcrumbs a {
+    color: #0dbcc2; 
+    text-decoration: none;
+    padding: 0 8px;
+}
+
+.breadcrumbs a:hover {
+    color: #020485; 
+}
+
+.breadcrumbs span {
+    color: #999; 
+}
+
+
+.vision-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); 
+}
+
+.vision-image img {
+    width: 350px; 
+    height: auto;
+    border-radius: 15px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    margin-right: 30px; 
+}
+
+.vision-text {
+    max-width: 600px; 
+    text-align: left; 
+}
+
+.vision-text h2 {
+    font-size: 32px; 
+    color: #0dbcc2; 
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.vision-text p {
+    font-size: 18px;
+    color: #333; 
+    line-height: 1.8; 
+    font-style: italic; 
+}
+
+.offers-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 70px;
+    gap: 20px;
+}
+
+.offer {
+    flex-basis: 22%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.offer-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+button {
+    background-color: #0dbcc2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #0a97a3;
+}
+
+.offer h3 {
+    font-size: 18px;
+    margin: 15px 0 10px 0;
+}
+
+.offer p {
+    font-size: 14px;
+    margin: 5px 0;
+}
 
 
