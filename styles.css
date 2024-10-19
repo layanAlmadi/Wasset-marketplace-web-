@@ -382,3 +382,52 @@ button:hover {
     color: #FFD700; /* Gold color for stars */
     margin-top: 10px;
 }
+/* Products Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.product-item {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    margin-bottom: 10px;
+}
+
+.product-item h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.product-item p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #0dbcc2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #0a97a3;
+}
