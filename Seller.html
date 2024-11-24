@@ -6,61 +6,89 @@
     <title>Seller Dashboard</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        .offers-container {
-            display: flex;
-            flex-wrap: wrap;
-            padding: 20px;
-            gap: 20px;
-            border: 1px solid #ccc;
-            min-height: 430px;
-        }
-        .offer {
-            display: inline-block;
-            width: 250px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            flex: 0 0 auto;
-        }
-        .offer-img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 15px;
-        }
-        .breadcrumbs {
-            margin: 20px;
-        }
-        .breadcrumbs a {
-            color: #138f99;
-            text-decoration: none;
-        }
-        .button-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            padding-bottom: 40px;
-        }
-        .button-container a {
-            margin-right: 10px;
-            padding: 10px 20px;
-            background-color: #138f99;
-            border: none;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-left: 10px;
-            text-decoration: none;
-            text-align: center;
-            display: inline-block;
-        }
-        .button-container a:hover {
-            background-color: #00a5a5;
-        }
-        footer {
-            margin-top: 40px;
-        }
+  .offers-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2%;
+    gap: 2%;
+    border: 1px solid #ccc;
+    min-height: 30vh;
+}
+
+.offer {
+    display: inline-block;
+    width: 20%;
+    padding: 2%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 0 0 auto;
+}
+
+.offer-img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1em;
+}
+
+.breadcrumbs {
+    margin: 2%;
+}
+
+.breadcrumbs a {
+    color: #138f99;
+    text-decoration: none;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    padding-bottom: 5%;
+}
+
+.button-container a {
+    margin-right: 1%;
+    padding: 1em 2em;
+    background-color: #138f99;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 1%;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+}
+
+.button-container a:hover {
+    background-color: #00a5a5;
+}
+
+footer {
+    margin-top: 5%;
+}
+
+@media (max-width: 768px) {
+    .offer {
+        width: 45%; 
+    }
+}
+
+@media (max-width: 480px) {
+    .offer {
+        width: 90%; 
+        margin-bottom: 5%; 
+    }
+    .button-container {
+        flex-direction: column; 
+    }
+    .button-container a {
+        margin-bottom: 1%; 
+    }
+}
+
     </style>
 </head>
 <body>
@@ -114,33 +142,38 @@
     </footer>
 
     <script>
-        // Load products from localStorage
-
         document.addEventListener('DOMContentLoaded', () => {
-            const offersContainer = document.getElementById('offers-container');
-            let storedProducts = JSON.parse(localStorage.getItem('sellerProducts')) || [];
+    const offersContainer = document.getElementById('offers-container');
+    const storedProducts = JSON.parse(localStorage.getItem('sellerProducts')) || [];
 
-            // If no products are found, display a message
-            if (storedProducts.length === 0) {
-                offersContainer.innerHTML = '<p>No products available. Please add new products.</p>';
-            } else {
-                storedProducts.forEach(product => {
-                    const offerElement = document.createElement('div');
-                    offerElement.classList.add('offer');
-                    offerElement.innerHTML = `
-                        <img src="${product.photo}" alt="${product.name}" class="offer-img">
-                        <h3>${product.name}</h3>
-                        <p><strong>$${product.price}</strong></p>
-                        <button>Edit</button>
-                    `;
-                    offersContainer.appendChild(offerElement);
-                });
-            }
+    if (storedProducts.length === 0) {
+        offersContainer.innerHTML = '<p>No products available. Please add new products.</p>';
+    } else {
+        storedProducts.forEach(product => {
+            const offerElement = document.createElement('div');
+            offerElement.classList.add('offer');
+
+            offerElement.innerHTML = `
+         <img src="${product.photo}" alt="${product.name}" class="offer-img">
+                <h3>${product.name}</h3>
+                <p>Quantity: ${product.quantity}</p>
+                <p>Price: <strong>$${product.regularPrice.toFixed(2)}</strong></p>
+                ${product.salePrice ? `<p>Sale Price: <strong>$${product.salePrice.toFixed(2)}</strong></p>` : ''}
+                <p>${product.description}</p>
+                <button>Edit</button>
+            `;
+
+            offersContainer.appendChild(offerElement);
         });
+    }
+});
 
     </script>
 </body>
 </html>
+
+
+
 
 
 
