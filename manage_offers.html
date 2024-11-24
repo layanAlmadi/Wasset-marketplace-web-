@@ -101,8 +101,12 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Initialize offers array
+            let offers = []; // Array to manage offers dynamically
+
             // Offer list and delete functionality
             const deleteButton = document.querySelector('.delete-btn');
+            const offerListBox = document.querySelector('.offer-list-box');
             const offerCheckboxes = document.querySelectorAll('.offer-item input[type="checkbox"]');
 
             deleteButton.addEventListener('click', () => {
@@ -116,6 +120,8 @@
                 if (confirm('Are you sure you want to delete the selected offers?')) {
                     selectedOffers.forEach(checkbox => {
                         const offerItem = checkbox.closest('.offer-item');
+                        const offerIndex = offers.findIndex(offer => offer.id === checkbox.id);
+                        offers.splice(offerIndex, 1); // Update the offers array
                         offerItem.remove(); // Remove the offer item from the DOM
                     });
                 }
@@ -129,7 +135,7 @@
 
                 const offerName = document.getElementById('offerName').value.trim();
                 const offerDescription = document.getElementById('offerDescription').value.trim();
-                const photoInput = document.getElementById('photo').value;
+                const photoInput = document.getElementById('photo').files[0];
 
                 // Check for empty fields
                 if (!offerName || !offerDescription || !photoInput) {
@@ -143,27 +149,39 @@
                     return;
                 }
 
-                // Create a new offer element
-                const newOfferItem = document.createElement('div');
-                newOfferItem.classList.add('offer-item');
-                newOfferItem.innerHTML = `
-                    <img src="${photoInput}" alt="${offerName}">
-                    <label>${offerName}</label>
-                    <input type="checkbox">
-                `;
+                // Validate image file type
+                const validImageTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+                if (!validImageTypes.includes(photoInput.type)) {
+                    alert('Please upload a valid image file (JPG or PNG)');
+                    return;
+                }
 
-                // Add new offer to the offer list
-                const offerListBox = document.querySelector('.offer-list-box');
-                offerListBox.appendChild(newOfferItem);
+                // Use FileReader to display image
+                const reader = new FileReader();
+                reader.onload = () => {
+                    const newOfferId = `offer${offers.length + 1}`; // Generate a unique ID
+                    const newOfferItem = document.createElement('div');
+                    newOfferItem.classList.add('offer-item');
+                    newOfferItem.innerHTML = `
+                        <img src="${reader.result}" alt="${offerName}">
+                        <label for="${newOfferId}">${offerName}</label>
+                        <input type="checkbox" id="${newOfferId}" name="${newOfferId}">
+                    `;
 
-                alert(`Offer "${offerName}" added successfully`);
+                    // Add new offer to the DOM
+                    offerListBox.appendChild(newOfferItem);
 
-                // Clear the form fields
-                addOfferForm.reset();
+                    // Add new offer to the offers array
+                    offers.push({ id: newOfferId, name: offerName, description: offerDescription });
+
+                    alert(`Offer "${offerName}" added successfully`);
+                    addOfferForm.reset(); // Clear the form fields
+                };
+
+                reader.readAsDataURL(photoInput);
             });
         });
     </script>
 
 </body>
 </html>
-
