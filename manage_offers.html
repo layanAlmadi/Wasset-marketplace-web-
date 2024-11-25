@@ -65,6 +65,7 @@
                         <label for="offer4">Elegant Perfume</label>
                         <input type="checkbox" id="offer4" name="offer4">
                     </div>
+                    <!-- Delete button placed below the offers -->
                     <button class="delete-btn">Delete Selected Offers</button>
                 </div>
 
@@ -104,25 +105,31 @@
             // Initialize offers array
             let offers = []; // Array to manage offers dynamically
 
-            // Offer list and delete functionality
+            // Get references to DOM elements
             const deleteButton = document.querySelector('.delete-btn');
             const offerListBox = document.querySelector('.offer-list-box');
-            const offerCheckboxes = document.querySelectorAll('.offer-item input[type="checkbox"]');
 
+            // Function to delete selected offers
             deleteButton.addEventListener('click', () => {
-                const selectedOffers = Array.from(offerCheckboxes).filter(checkbox => checkbox.checked);
-
-                if (selectedOffers.length === 0) {
+                // Get selected checkboxes
+                const offerCheckboxes = document.querySelectorAll('.offer-item input[type="checkbox"]:checked');
+                
+                if (offerCheckboxes.length === 0) {
                     alert('Please select at least one offer');
                     return;
                 }
 
                 if (confirm('Are you sure you want to delete the selected offers?')) {
-                    selectedOffers.forEach(checkbox => {
+                    offerCheckboxes.forEach(checkbox => {
                         const offerItem = checkbox.closest('.offer-item');
                         const offerIndex = offers.findIndex(offer => offer.id === checkbox.id);
-                        offers.splice(offerIndex, 1); // Update the offers array
-                        offerItem.remove(); // Remove the offer item from the DOM
+                        
+                        if (offerIndex !== -1) {
+                            // Remove from the offers array
+                            offers.splice(offerIndex, 1);
+                            // Remove the offer item from the DOM
+                            offerItem.remove();
+                        }
                     });
                 }
             });

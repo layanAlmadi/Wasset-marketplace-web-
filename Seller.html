@@ -6,22 +6,26 @@
     <title>Seller Dashboard</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-  .offers-container {
+       :root {
+    font-size: 16px;
+}
+
+.offers-container {
     display: flex;
     flex-wrap: wrap;
-    padding: 2%;
-    gap: 2%;
-    border: 1px solid #ccc;
-    min-height: 30vh;
+    padding: 1.25rem;
+    gap: 1.25rem;
+    border: 0.0625rem solid #ccc;
+    min-height: 26.875rem;
 }
 
 .offer {
     display: inline-block;
-    width: 20%;
-    padding: 2%;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+    width: 15.625rem;
+    padding: 1.25rem;
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.5rem;
+    box-shadow: 0.125rem 0.125rem 0.75rem rgba(0, 0, 0, 0.1);
     text-align: center;
     flex: 0 0 auto;
 }
@@ -29,11 +33,11 @@
 .offer-img {
     max-width: 100%;
     height: auto;
-    margin-bottom: 1em;
+    margin-bottom: 0.9375rem;
 }
 
 .breadcrumbs {
-    margin: 2%;
+    margin: 1.25rem;
 }
 
 .breadcrumbs a {
@@ -44,19 +48,19 @@
 .button-container {
     display: flex;
     justify-content: center;
-    margin-top: 2%;
-    padding-bottom: 5%;
+    margin-top: 1.25rem;
+    padding-bottom: 2.5rem;
 }
 
 .button-container a {
-    margin-right: 1%;
-    padding: 1em 2em;
+    margin-right: 0.625rem;
+    padding: 0.625rem 1.25rem;
     background-color: #138f99;
     border: none;
     color: white;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     cursor: pointer;
-    margin-left: 1%;
+    margin-left: 0.625rem;
     text-decoration: none;
     text-align: center;
     display: inline-block;
@@ -67,25 +71,37 @@
 }
 
 footer {
-    margin-top: 5%;
+    margin-top: 2.5rem;
 }
 
 @media (max-width: 768px) {
+    .offers-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
     .offer {
-        width: 45%; 
+        width: 90%;
+    }
+
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .button-container a {
+        margin: 0.625rem 0;
     }
 }
 
 @media (max-width: 480px) {
     .offer {
-        width: 90%; 
-        margin-bottom: 5%; 
+        width: 100%;
+        padding: 1rem;
     }
-    .button-container {
-        flex-direction: column; 
-    }
-    .button-container a {
-        margin-bottom: 1%; 
+
+    .offer-img {
+        max-width: 80%;
     }
 }
 
@@ -116,7 +132,8 @@ footer {
     <!-- Breadcrumbs -->
     <nav class="breadcrumbs">
         <a href="Home Page.html">Home</a> &gt;
-        <span>Seller</span>
+        <a href="Seller.html">Seller</a>
+        <span>Dashboard</span>
     </nav>
 
     <!-- Products Section -->
@@ -126,7 +143,7 @@ footer {
 
     <!-- Button to Add Product or Edit Offers -->
     <div class="button-container">
-        <a href="manage_offers.html">Make or Delete Offers</a>
+       <a href="manage_offers.html">Make or Delete Offers</a>
         <a href="add-new-prodect.html">Add Product</a>
     </div>
 
@@ -142,7 +159,7 @@ footer {
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+       document.addEventListener('DOMContentLoaded', () => {
     const offersContainer = document.getElementById('offers-container');
     const storedProducts = JSON.parse(localStorage.getItem('sellerProducts')) || [];
 
@@ -154,7 +171,7 @@ footer {
             offerElement.classList.add('offer');
 
             offerElement.innerHTML = `
-         <img src="${product.photo}" alt="${product.name}" class="offer-img">
+                <img src="${product.photo}" alt="${product.name}" class="offer-img">
                 <h3>${product.name}</h3>
                 <p>Quantity: ${product.quantity}</p>
                 <p>Price: <strong>$${product.regularPrice.toFixed(2)}</strong></p>
@@ -168,9 +185,11 @@ footer {
     }
 });
 
+
     </script>
 </body>
 </html>
+
 
 
 

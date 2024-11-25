@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Input validation
         const productName = productNameInput.value.trim();
-        const photo = photoInput.value;
+        const photo = photoInput.files[0]; // Get the uploaded file
         const regularPrice = regularPriceInput.value.trim();
         const quantity = quantityInput.value.trim();
         const salePrice = salePriceInput.value.trim();
@@ -42,29 +42,38 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Create a product object
-        const product = {
-            name: productName,
-            photo: photo,
-            regularPrice: parseFloat(regularPrice),
-            quantity: parseInt(quantity),
-            salePrice: salePrice ? parseFloat(salePrice) : null,
-            description: description
+        // Create a FileReader to convert the image to Base64
+        const reader = new FileReader();
+        reader.onload = () => {
+            const imageBase64 = reader.result; // The image in Base64 format
+
+            // Create a product object
+            const product = {
+                name: productName,
+                photo: imageBase64, // Save the Base64 image
+                regularPrice: parseFloat(regularPrice),
+                quantity: parseInt(quantity),
+                salePrice: salePrice ? parseFloat(salePrice) : null,
+                description: description
+            };
+
+            // Retrieve existing products from localStorage
+            const existingProducts = JSON.parse(localStorage.getItem('sellerProducts')) || [];
+
+            // Add new product to the array
+            existingProducts.push(product);
+
+            // Save updated products list to localStorage
+            localStorage.setItem('sellerProducts', JSON.stringify(existingProducts));
+
+            // Alert success message
+            alert(`Product "${product.name}" has been added successfully.`);
+
+            // Clear the form
+            form.reset();
         };
 
-        // Retrieve existing products from localStorage
-        const existingProducts = JSON.parse(localStorage.getItem('sellerProducts')) || [];
-
-        // Add new product to the array
-        existingProducts.push(product);
-
-        // Save updated products list to localStorage
-        localStorage.setItem('sellerProducts', JSON.stringify(existingProducts));
-
-        // Alert success message
-        alert(`Product "${product.name}" has been added successfully.`);
-
-        // Clear the form
-        form.reset();
+        // Read the uploaded photo file as Base64
+        reader.readAsDataURL(photo);
     });
 });
