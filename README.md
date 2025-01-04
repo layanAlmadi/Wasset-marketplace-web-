@@ -29,7 +29,6 @@ We plan to introduce additional features such as:
 
 ---
 
-Feel free to provide feedback to help us improve the platform!
 
 
 
